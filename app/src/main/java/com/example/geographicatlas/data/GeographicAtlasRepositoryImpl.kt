@@ -19,7 +19,8 @@ class GeographicAtlasRepositoryImpl: GeographicAtlasRepository {
     override suspend fun getCountryByCca2(cca2: String): Country {
         val countryData = apiService.getCountryByCca2(cca2)
         Log.d("", "$countryData")
-        return Mapper.mapCountryDetailsDtoToCountry(countryData)
+        val country = Mapper.mapCountryDetailsDtoListToCountryList(countryData)
+        return country.get(0)
     }
 
 }

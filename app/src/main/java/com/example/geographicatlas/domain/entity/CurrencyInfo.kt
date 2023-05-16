@@ -1,6 +1,7 @@
 package com.example.geographicatlas.domain.entity
 
 data class CurrencyInfo(
-    val name: String?,
-    val symbol: String?
+    val name: String = "",
+    val symbol: String = "",
+    val code: String = ""
 )

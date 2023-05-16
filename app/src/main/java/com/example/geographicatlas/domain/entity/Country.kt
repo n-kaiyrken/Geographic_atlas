@@ -2,13 +2,15 @@ package com.example.geographicatlas.domain.entity
 
 data class Country(
     val name: String,
-    val capital: List<String>?,
+    val capital: String,
     val cca2: String,
-    val latlng: List<Double>?,
-    val population: Long?,
-    val area: Double?,
-    val currencies: Map<String, CurrencyInfo>?,
-    val flags: String?,
-    val subregion: String?,
-    val timezones: List<String?>
+    val continents: String,
+    val latlng: String,
+    val population: String,
+    val area: String,
+    val currencies: String,
+    val flags: String,
+    val subregion: String,
+    val timezones: String,
+    var isExpanded: Boolean = false
 )
