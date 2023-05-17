@@ -1,4 +1,4 @@
-package com.example.geographicatlas.presentation
+package com.example.geographicatlas.presentation.adapters
 
 import android.view.View
 import android.view.ViewGroup
@@ -7,13 +7,12 @@ import androidx.viewbinding.ViewBinding
 import com.example.geographicatlas.databinding.ItemContinentBinding
 import com.example.geographicatlas.databinding.ItemCountryCollapsedBinding
 import com.example.geographicatlas.domain.entity.Country
-import com.example.geographicatlas.domain.entity.CurrencyInfo
 import com.squareup.picasso.Picasso
 
 sealed class CountriesViewHolder(binding: ViewBinding) : RecyclerView.ViewHolder(binding.root) {
 
     class CountriesViewHolderCountry(
-        val binding: ItemCountryCollapsedBinding
+        private val binding: ItemCountryCollapsedBinding
     ) : CountriesViewHolder(binding) {
 
         fun bind(
@@ -27,7 +26,7 @@ sealed class CountriesViewHolder(binding: ViewBinding) : RecyclerView.ViewHolder
 
             with(binding) {
                 buttonExpand.setOnClickListener {
-                    val state = country.isExpanded;
+                    val state = country.isExpanded
                     country.isExpanded = !state
                     onButtonExpandClickListener()
                 }
@@ -55,7 +54,7 @@ sealed class CountriesViewHolder(binding: ViewBinding) : RecyclerView.ViewHolder
                 child.visibility = visibility
 
                 if (child is ViewGroup) {
-                    setChildrenVisibility(child, visibility)
+                    setChildrenVisibility(viewGroup = child, visibility = visibility)
                 }
             }
         }

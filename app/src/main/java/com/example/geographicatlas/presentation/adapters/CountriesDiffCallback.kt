@@ -1,4 +1,4 @@
-package com.example.geographicatlas.presentation
+package com.example.geographicatlas.presentation.adapters
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.geographicatlas.domain.entity.Country

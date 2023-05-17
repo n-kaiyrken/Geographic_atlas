@@ -6,8 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.geographicatlas.R
-import com.example.geographicatlas.databinding.FragmentCountriesListBinding
 import com.example.geographicatlas.databinding.FragmentCountryDetailsBinding
 import com.squareup.picasso.Picasso
 
@@ -31,7 +29,6 @@ class CountryDetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         binding.detailsToolBar.setNavigationOnClickListener {
-            viewModel.countryLivaData
             requireActivity().onBackPressedDispatcher.onBackPressed()
         }
         viewModel.countryLivaData.observe(viewLifecycleOwner) {

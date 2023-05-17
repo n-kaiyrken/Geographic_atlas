@@ -15,6 +15,12 @@
         tools:title="Kazakhstan"
         app:titleTextAppearance="@style/ToolbarTitleStyle" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:background="@android:color/darker_gray" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,7 +46,8 @@
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
                     android:scaleType="centerCrop"
-                    tools:src="@drawable/kz_flag" />
+                    tools:src="@drawable/kz_flag"
+                    android:contentDescription="@string/flag_desc" />
 
             </androidx.cardview.widget.CardView>
 
@@ -58,7 +65,8 @@
                     android:layout_marginTop="4dp"
                     android:padding="8dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_point" />
+                    android:src="@drawable/ic_point"
+                    android:contentDescription="@string/details_icon_point" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -68,7 +76,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Capital:"
+                        android:text="@string/capital"
                         style="@style/DetailTextViewLabelStyle"/>
 
                     <TextView
@@ -97,7 +105,8 @@
                     android:layout_marginTop="4dp"
                     android:padding="8dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_point" />
+                    android:src="@drawable/ic_point"
+                    android:contentDescription="@string/details_icon_point" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -107,7 +116,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Capital coordinates:"
+                        android:text="@string/capital_coordinates"
                         style="@style/DetailTextViewLabelStyle"/>
 
                     <TextView
@@ -135,7 +144,8 @@
                     android:layout_marginTop="4dp"
                     android:padding="8dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_point" />
+                    android:src="@drawable/ic_point"
+                    android:contentDescription="@string/details_icon_point"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -145,7 +155,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Population:"
+                        android:text="@string/population"
                         style="@style/DetailTextViewLabelStyle"/>
 
                     <TextView
@@ -174,7 +184,8 @@
                     android:layout_marginTop="4dp"
                     android:padding="8dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_point" />
+                    android:src="@drawable/ic_point"
+                    android:contentDescription="@string/details_icon_point"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -184,7 +195,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Area:"
+                        android:text="@string/area"
                         style="@style/DetailTextViewLabelStyle"/>
 
                     <TextView
@@ -213,7 +224,8 @@
                     android:layout_marginTop="4dp"
                     android:padding="8dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_point" />
+                    android:src="@drawable/ic_point"
+                    android:contentDescription="@string/details_icon_point"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -223,7 +235,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Currency:"
+                        android:text="@string/currency"
                         style="@style/DetailTextViewLabelStyle"/>
 
                     <TextView
@@ -252,6 +264,7 @@
                     android:layout_marginTop="4dp"
                     android:padding="8dp"
                     android:scaleType="centerCrop"
+                    android:contentDescription="@string/details_icon_point"
                     android:src="@drawable/ic_point" />
 
                 <LinearLayout
@@ -262,7 +275,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Region:"
+                        android:text="@string/region"
                         style="@style/DetailTextViewLabelStyle"/>
 
                     <TextView
@@ -291,7 +304,8 @@
                     android:layout_marginTop="4dp"
                     android:padding="8dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ic_point" />
+                    android:src="@drawable/ic_point"
+                    android:contentDescription="@string/details_icon_point" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -301,7 +315,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Timezones:"
+                        android:text="@string/timezones"
                         style="@style/DetailTextViewLabelStyle"/>
 
                     <TextView

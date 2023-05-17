@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.geographicatlas.R
 import com.example.geographicatlas.databinding.FragmentCountriesListBinding
+import com.example.geographicatlas.presentation.adapters.CountriesAdapter
 
 
 class CountriesListFragment : Fragment() {

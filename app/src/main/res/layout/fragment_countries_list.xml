@@ -16,6 +16,12 @@
         app:titleTextColor="?attr/colorOnSecondary"
         tools:title="World countries" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:background="@android:color/darker_gray" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

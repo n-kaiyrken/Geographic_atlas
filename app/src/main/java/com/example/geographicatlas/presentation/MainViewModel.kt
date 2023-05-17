@@ -1,6 +1,5 @@
 package com.example.geographicatlas.presentation
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -28,10 +27,9 @@ class MainViewModel : ViewModel() {
         getAllCountries()
     }
 
-    fun getAllCountries() {
+    private fun getAllCountries() {
         viewModelScope.launch {
             val countryList = modifyList(getAllCountriesUseCase())
-            Log.d("MainVoewModel", "${countryList}")
             _countriesListLivaData.value = countryList
         }
     }

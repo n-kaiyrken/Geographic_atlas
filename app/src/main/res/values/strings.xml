@@ -2,4 +2,16 @@
     <string name="app_name">Geographic atlas</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="flag_desc">Country flag image</string>
+    <string name="details_icon_point">details_icon_point</string>
+    <string name="capital">Capital:</string>
+    <string name="capital_coordinates">Capital coordinates:</string>
+    <string name="population">Population:</string>
+    <string name="area">Area:</string>
+    <string name="currency">Currency:</string>
+    <string name="region">Region:</string>
+    <string name="timezones">Timezones:</string>
+    <string name="expand_button_desc">Expand button</string>
+    <string name="currencies">Currencies:</string>
+    <string name="learn_more_btn">LEARN MORE</string>
 </resources>

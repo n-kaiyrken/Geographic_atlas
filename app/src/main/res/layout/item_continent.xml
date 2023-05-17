@@ -12,6 +12,7 @@
         android:id="@+id/textViewContinent"
         tools:text="Asia"
         android:textColor="@color/capitalColor"
+        android:textStyle="bold"
         android:textSize="18sp"
         android:textAllCaps="true"
         android:letterSpacing="0.2"

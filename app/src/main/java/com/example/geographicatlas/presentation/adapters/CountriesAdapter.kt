@@ -1,6 +1,5 @@
-package com.example.geographicatlas.presentation
+package com.example.geographicatlas.presentation.adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
@@ -14,7 +13,6 @@ class CountriesAdapter : ListAdapter<Any, CountriesViewHolder>(CountriesDiffCall
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountriesViewHolder {
 
-        Log.d("CountriesAdapter", "onCreateViewHolder")
         return when (viewType) {
             VIEW_TYPE_COUNTRY -> CountriesViewHolder.CountriesViewHolderCountry(
                 ItemCountryCollapsedBinding.inflate(
@@ -59,8 +57,6 @@ class CountriesAdapter : ListAdapter<Any, CountriesViewHolder>(CountriesDiffCall
 
     companion object {
         const val VIEW_TYPE_COUNTRY = 101
-        const val VIEW_TYPE_EXPANDED = 100
         const val VIEW_TYPE_CONTINENT = 102
-        const val MAX_POOL_SIZE = 15
     }
 }

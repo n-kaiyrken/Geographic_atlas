@@ -37,7 +37,8 @@
                     android:layout_height="53dp"
                     android:adjustViewBounds="true"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/ch_flag" />
+                    android:src="@drawable/ch_flag"
+                    android:contentDescription="@string/flag_desc" />
 
             </androidx.cardview.widget.CardView>
 
@@ -73,7 +74,8 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginEnd="8dp"
-                android:src="@drawable/baseline_expand_more_24" />
+                android:src="@drawable/baseline_expand_more_24"
+                android:contentDescription="@string/expand_button_desc" />
 
         </LinearLayout>
 
@@ -101,7 +103,7 @@
                     android:layout_marginEnd="8dp"
                     android:textColor="@color/capitalColor"
                     android:textSize="17sp"
-                    android:text="Population:" />
+                    android:text="@string/population" />
 
                 <TextView
                     android:id="@+id/textViewPopulation"
@@ -128,7 +130,7 @@
                     android:layout_marginEnd="8dp"
                     android:textColor="@color/capitalColor"
                     android:textSize="17sp"
-                    android:text="Area::"/>
+                    android:text="@string/area"/>
 
                 <TextView
                     android:id="@+id/textViewArea"
@@ -155,7 +157,7 @@
                     android:layout_marginEnd="8dp"
                     android:textColor="@color/capitalColor"
                     android:textSize="17sp"
-                    android:text="Currencies:" />
+                    android:text="@string/currencies" />
 
                 <TextView
                     android:id="@+id/textViewCurrencies"
@@ -174,7 +176,7 @@
                 android:layout_height="43dp"
                 android:gravity="center"
                 android:letterSpacing="0.1"
-                android:text="LEARN MORE"
+                android:text="@string/learn_more_btn"
                 android:textAllCaps="true"
                 android:textColor="@color/buttonColor"
                 android:textSize="16sp"
