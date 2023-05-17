@@ -25,4 +25,9 @@
         </activity>
     </application>
 
+    <queries>
+        <!-- Specify the package name of the app you want to interact with -->
+        <package android:name="com.example.geographicatlas" />
+    </queries>
+
 </manifest>

@@ -11,5 +11,6 @@ data class CountryDetailsDto(
     val area: Double?,
     val currencies: Map<String, CurrencyInfoDto>?,
     val subregion: String?,
-    val timezones: List<String>?
+    val timezones: List<String>?,
+    val maps: MapsDto
 )

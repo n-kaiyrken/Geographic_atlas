@@ -54,7 +54,8 @@ class Mapper {
                 currencies = mapCurrencyInfoDtoToString(countryDetailsDto.currencies),
                 flags = countryDetailsDto.flags.png ?: "",
                 subregion = countryDetailsDto.subregion ?: "",
-                timezones = countryDetailsDto.timezones?.joinToString("\n") ?: ""
+                timezones = countryDetailsDto.timezones?.joinToString("\n") ?: "",
+                maps = countryDetailsDto.maps.googleMaps ?: ""
             )
         }
 

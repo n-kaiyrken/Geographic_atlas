@@ -12,5 +12,6 @@ data class Country(
     val flags: String = "",
     val subregion: String = "",
     val timezones: String = "",
-    var isExpanded: Boolean = false
+    var isExpanded: Boolean = false,
+    val maps: String = "",
 )

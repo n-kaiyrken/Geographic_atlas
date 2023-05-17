@@ -1,5 +1,7 @@
 package com.example.geographicatlas.presentation
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,11 +19,12 @@ class CountryDetailsFragment : Fragment() {
     private val binding: FragmentCountryDetailsBinding
         get() = _binding ?: throw RuntimeException("FragmentCountryDetailsBinding is null")
 
+    var onCoordinatesClickListener: ((url: String) -> Unit)? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentCountryDetailsBinding.inflate(inflater,container, false )
+        _binding = FragmentCountryDetailsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -46,21 +49,39 @@ class CountryDetailsFragment : Fragment() {
                 binding.textViewDetailsNoConnection.visibility = View.GONE
             }
         }
-        viewModel.countryLivaData.observe(viewLifecycleOwner) {
+        viewModel.countryLivaData.observe(viewLifecycleOwner) {country ->
             with(binding) {
-                detailsToolBar.title = it.name
-                textViewDetailsCapital.text = it.capital
-                textViewCoordinates.text = it.latlng
-                textViewRegion.text = it.subregion
-                textViewTimezones.text = it.timezones
-                textViewDetailsArea.text = it.area
-                textViewDetailsCurrency.text = it.currencies
-                textViewDetailsPopulation.text = it.population
-                if (it.flags != "") {
-                    Picasso.get().load(it.flags).into(binding.imageViewFlag)
+                detailsToolBar.title = country.name
+                textViewDetailsCapital.text = country.capital
+                textViewCoordinates.text = country.latlng
+                textViewRegion.text = country.subregion
+                textViewTimezones.text = country.timezones
+                textViewDetailsArea.text = country.area
+                textViewDetailsCurrency.text = country.currencies
+                textViewDetailsPopulation.text = country.population
+                if (country.flags != "") {
+                    Picasso.get().load(country.flags).into(binding.imageViewFlag)
+                }
+                if (country.maps != "") {
+                    binding.textViewCoordinates.setOnClickListener {
+                        openMaps(country.maps)
+                    }
                 }
             }
         }
+
+    }
+
+    private fun openMaps(url: String) {
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.data = Uri.parse(url)
+        val packageManager = context?.packageManager
+        if (packageManager?.let { it1 -> intent.resolveActivity(it1) } != null) {
+            context?.startActivity(intent)
+        } else {
+
+        }
+        startActivity(intent)
     }
 
     private fun setChildrenVisibility(viewGroup: ViewGroup, visibility: Int) {
