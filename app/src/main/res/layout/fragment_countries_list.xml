@@ -37,6 +37,17 @@
 
     </LinearLayout>
 
-
+    <TextView
+        android:id="@+id/textViewNoConnection"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:textColor="@color/buttonColor"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:padding="15dp"
+        android:background="@color/card_background"
+        android:text="@string/no_internet_connection_refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"/>
 
 </FrameLayout>

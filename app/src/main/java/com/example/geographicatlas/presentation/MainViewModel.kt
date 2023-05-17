@@ -1,5 +1,6 @@
 package com.example.geographicatlas.presentation
 
+import android.view.ViewGroup
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -23,14 +24,20 @@ class MainViewModel : ViewModel() {
     private val _countryLivaData = MutableLiveData<Country>()
     val countryLivaData: LiveData<Country> = _countryLivaData
 
+    private val _noConnectionLivaData = MutableLiveData<Boolean>()
+    val noConnectionLivaData: LiveData<Boolean> = _noConnectionLivaData
+
     init {
         getAllCountries()
     }
 
-    private fun getAllCountries() {
+    fun getAllCountries() {
         viewModelScope.launch {
-            val countryList = modifyList(getAllCountriesUseCase())
-            _countriesListLivaData.value = countryList
+            val countryList = getAllCountriesUseCase()
+            if (isHaveConnection(countryList.get(0))) {
+                val modifiedList = modifyList(getAllCountriesUseCase())
+                _countriesListLivaData.value = modifiedList
+            }
         }
     }
     private fun modifyList(countryList: List<Country>):List<Any> {
@@ -46,7 +53,23 @@ class MainViewModel : ViewModel() {
     fun getCountryByCca2(cca2: String) {
         viewModelScope.launch {
             val country = getCountryByCca2UseCase(cca2)
-            _countryLivaData.value = country
+            if (isHaveConnection(country)) {
+                _countryLivaData.value = country
+            }
         }
+    }
+
+    private fun isHaveConnection(country: Country): Boolean {
+        return if (country.cca2 == "") {
+            _noConnectionLivaData.value = true
+            false
+        } else {
+            _noConnectionLivaData.value = false
+            true
+        }
+    }
+
+    fun clearCountryLivaData() {
+        _countryLivaData.value = Country()
     }
 }

@@ -31,10 +31,22 @@ class CountriesListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         val adapter = CountriesAdapter()
+        binding.textViewNoConnection.setOnClickListener {
+            viewModel.getAllCountries()
+        }
+        viewModel.noConnectionLivaData.observe(viewLifecycleOwner) {
+            if (it) {
+                binding.textViewNoConnection.visibility = View.VISIBLE
+                binding.recyclerViewCountries.visibility = View.GONE
+            } else {
+                binding.recyclerViewCountries.visibility = View.VISIBLE
+                binding.textViewNoConnection.visibility = View.GONE
+            }
+        }
         binding.recyclerViewCountries.adapter = adapter
         adapter.onButtonLearnMoreClickListener = {
-            viewModel.getCountryByCca2(it)
             launchCountryDetailsFragment(CountryDetailsFragment.newInstance())
+            viewModel.getCountryByCca2(it)
         }
         viewModel.countriesListLivaData.observe(viewLifecycleOwner){
             adapter.submitList(it)

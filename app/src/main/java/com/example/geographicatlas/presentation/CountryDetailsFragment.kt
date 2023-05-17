@@ -30,6 +30,21 @@ class CountryDetailsFragment : Fragment() {
         viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
         binding.detailsToolBar.setNavigationOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()
+            viewModel.clearCountryLivaData()
+        }
+        binding.textViewDetailsNoConnection.setOnClickListener {
+            viewModel.getAllCountries()
+        }
+        viewModel.noConnectionLivaData.observe(viewLifecycleOwner) {
+            if (it) {
+                binding.scrollView.visibility = View.GONE
+                setChildrenVisibility(binding.scrollView, View.GONE)
+                binding.textViewDetailsNoConnection.visibility = View.VISIBLE
+            } else {
+                binding.scrollView.visibility = View.VISIBLE
+                setChildrenVisibility(binding.scrollView, View.VISIBLE)
+                binding.textViewDetailsNoConnection.visibility = View.GONE
+            }
         }
         viewModel.countryLivaData.observe(viewLifecycleOwner) {
             with(binding) {
@@ -41,7 +56,21 @@ class CountryDetailsFragment : Fragment() {
                 textViewDetailsArea.text = it.area
                 textViewDetailsCurrency.text = it.currencies
                 textViewDetailsPopulation.text = it.population
-                Picasso.get().load(it.flags).into(binding.imageViewFlag)
+                if (it.flags != "") {
+                    Picasso.get().load(it.flags).into(binding.imageViewFlag)
+                }
+            }
+        }
+    }
+
+    private fun setChildrenVisibility(viewGroup: ViewGroup, visibility: Int) {
+        val count = viewGroup.childCount
+        for (i in 0 until count) {
+            val child = viewGroup.getChildAt(i)
+            child.visibility = visibility
+
+            if (child is ViewGroup) {
+                setChildrenVisibility(viewGroup = child, visibility = visibility)
             }
         }
     }

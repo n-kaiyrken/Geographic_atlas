@@ -18,11 +18,14 @@ sealed class CountriesViewHolder(binding: ViewBinding) : RecyclerView.ViewHolder
         fun bind(
             country: Country,
             onButtonExpandClickListener: () -> Unit,
-            onButtonLearnMoreClickListener: (cca2: String) -> Unit
+            onButtonLearnMoreClickListener: (cca2: String) -> Unit,
         ) {
             binding.textViewCountry.text = country.name
             binding.textViewListCapital.text = country.capital
-            Picasso.get().load(country.flags).into(binding.imageViewFlag)
+
+            if (country.flags != "") {
+                Picasso.get().load(country.flags).into(binding.imageViewFlag)
+            }
 
             with(binding) {
                 buttonExpand.setOnClickListener {
