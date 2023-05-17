@@ -1,6 +1,6 @@
 # Geographic_atlas
 
-The link to Google Drive containing demo video:  https://drive.google.com/file/d/1rOTWH2m4fmjv95eJLdT1o02kpFOlmSCZ/view?usp=sharing
+The link to Google Drive containing demo video:  https://drive.google.com/file/d/10-jWTXneqRAvQi8bhysm91dsHTxIVCpf/view?usp=sharing
 1. MVVM
 2. Clean architecture
 3. Expand/collapse feature for CountriesList animated, with no UI bugs;
