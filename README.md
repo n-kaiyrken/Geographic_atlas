@@ -6,6 +6,7 @@ The link to Google Drive containing demo video:  https://drive.google.com/file/d
 3. Expand/collapse feature for CountriesList animated, with no UI bugs;
 4. Checking internet connection
 5. Open google maps on tap capital latitude + longitude value
+6. DI with Dagger 2
 
 <img src="https://github.com/n-kaiyrken/Geographic_atlas/assets/111049118/c81bd980-dd3b-4e53-bbd2-b73e5c073967" width="270" height="600">
 <img src="https://github.com/n-kaiyrken/Geographic_atlas/assets/111049118/3bd7e640-682e-467d-b5cc-2c69927680f8" width="270" height="600">
