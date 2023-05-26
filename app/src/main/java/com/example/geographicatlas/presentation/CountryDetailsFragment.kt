@@ -1,5 +1,6 @@
 package com.example.geographicatlas.presentation
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -8,18 +9,32 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.geographicatlas.App
 import com.example.geographicatlas.databinding.FragmentCountryDetailsBinding
 import com.squareup.picasso.Picasso
+import javax.inject.Inject
 
 class CountryDetailsFragment : Fragment() {
 
     private lateinit var viewModel: MainViewModel
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+
+    private val component by lazy {
+        (requireActivity().application as App).component
+    }
 
     private var _binding: FragmentCountryDetailsBinding? = null
     private val binding: FragmentCountryDetailsBinding
         get() = _binding ?: throw RuntimeException("FragmentCountryDetailsBinding is null")
 
     var onCoordinatesClickListener: ((url: String) -> Unit)? = null
+    override fun onAttach(context: Context) {
+        component.inject(this)
+        super.onAttach(context)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,7 +45,7 @@ class CountryDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity(), viewModelFactory).get(MainViewModel::class.java)
         binding.detailsToolBar.setNavigationOnClickListener {
             requireActivity().onBackPressedDispatcher.onBackPressed()
             viewModel.clearCountryLivaData()

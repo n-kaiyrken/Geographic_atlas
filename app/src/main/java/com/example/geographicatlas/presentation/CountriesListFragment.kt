@@ -1,19 +1,29 @@
 package com.example.geographicatlas.presentation
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.geographicatlas.App
 import com.example.geographicatlas.R
 import com.example.geographicatlas.databinding.FragmentCountriesListBinding
 import com.example.geographicatlas.presentation.adapters.CountriesAdapter
+import javax.inject.Inject
 
 
 class CountriesListFragment : Fragment() {
 
     private lateinit var viewModel: MainViewModel
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+
+    private val component by lazy {
+        (requireActivity().application as App).component
+    }
 
     private var _binding: FragmentCountriesListBinding? = null
     private val binding: FragmentCountriesListBinding
@@ -27,9 +37,14 @@ class CountriesListFragment : Fragment() {
         return binding.root
     }
 
+    override fun onAttach(context: Context) {
+        component.inject(this)
+        super.onAttach(context)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity(), viewModelFactory).get(MainViewModel::class.java)
         val adapter = CountriesAdapter()
         binding.textViewNoConnection.setOnClickListener {
             viewModel.getAllCountries()

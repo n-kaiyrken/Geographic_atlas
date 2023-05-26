@@ -1,22 +1,19 @@
 package com.example.geographicatlas.presentation
 
-import android.view.ViewGroup
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.geographicatlas.data.GeographicAtlasRepositoryImpl
 import com.example.geographicatlas.domain.entity.Country
 import com.example.geographicatlas.domain.usecases.GetAllCountriesUseCase
 import com.example.geographicatlas.domain.usecases.GetCountryByCca2UseCase
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MainViewModel : ViewModel() {
-
-    private val repository = GeographicAtlasRepositoryImpl()
-
-    private val getAllCountriesUseCase = GetAllCountriesUseCase(repository)
-    private val getCountryByCca2UseCase = GetCountryByCca2UseCase(repository)
+class MainViewModel @Inject constructor(
+    private val getAllCountriesUseCase: GetAllCountriesUseCase,
+    private val getCountryByCca2UseCase: GetCountryByCca2UseCase
+) : ViewModel() {
 
     private val _countriesListLivaData = MutableLiveData<List<Any>>()
     val countriesListLivaData: LiveData<List<Any>> = _countriesListLivaData
